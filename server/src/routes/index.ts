@@ -7,6 +7,11 @@ const router = Router();
 
 router.use('/auth', authRoutes);
 // TODO: Add authentication to the API routes
+router.get('/tasks', authenticateToken, (_, res) => {
+    // Fetch and return tasks from DB
+    res.send({ tasks: [] });
+});
+
 router.use('/api', apiRoutes);
 
 export default router;
